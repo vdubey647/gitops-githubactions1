@@ -55,7 +55,7 @@ jobs:
     - name: Build and push Docker image
       run: |
         docker build -t react-app .
-        docker tag react-app vijaygawate/gitops01:${{ github.sha }}
+        docker tag react-app vinay dubey/gitops01:${{ github.sha }}
         docker push vijaygawate/gitops01:${{ github.sha }}
 
   update-manifest-stage:
@@ -64,17 +64,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: Vijaygawate/gitops-githubactions2
+          repository: vdubey647/gitops-githubactions2
           ref: 'main'
           token: ${{ secrets.G_TOKEN }}
           persist-credentials: false
       - name: setup git config
         run: |
-          git config --global user.email "vijaygawate79@gmail.com"
-          git config --global user.name "Vijaygawate"
-          git remote set-url origin https://x-access-token:${{ secrets.G_TOKEN }}@github.com/Vijaygawate/gitops-githubactions2.git
+          git config --global user.email "vinaydubey.11211@gmail.com"
+          git config --global user.name "vdubey647"
+          git remote set-url origin https://x-access-token:${{ secrets.G_TOKEN }}@github.com/vdubey647/gitops-githubactions2.git
           echo ${{ github.sha }}
-          sed -i "s#vijaygawate.*#vijaygawate/gitops01:${{ github.sha }}#g" deployment.yaml
+          sed -i "s#vinay dubey.*#vijaygawate/gitops01:${{ github.sha }}#g" deployment.yaml
           git add -A
           git commit -am "Update image for - ${{ github.sha }}"
       - run: echo ${{ github }}
