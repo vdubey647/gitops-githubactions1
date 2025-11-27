@@ -56,7 +56,7 @@ jobs:
       run: |
         docker build -t react-app .
         docker tag react-app vdubey357/gitops01:${{ github.sha }}
-        docker push vijaygawate/gitops01:${{ github.sha }}
+        docker push vdubey357/gitops01:${{ github.sha }}
 
   update-manifest-stage:
     runs-on: ubuntu-latest
