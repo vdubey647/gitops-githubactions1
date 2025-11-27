@@ -55,7 +55,7 @@ jobs:
     - name: Build and push Docker image
       run: |
         docker build -t react-app .
-        docker tag react-app vinay dubey/gitops01:${{ github.sha }}
+        docker tag react-app vdubey357/gitops01:${{ github.sha }}
         docker push vijaygawate/gitops01:${{ github.sha }}
 
   update-manifest-stage:
