@@ -1,4 +1,4 @@
-# BUILD STAGE-S
+# BUILD STAGE-V
 FROM node:18-alpine as build-step
 
 WORKDIR /app
